@@ -1,39 +1,53 @@
 package com.Jonas.bookstore.domain;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 /**
  *
  * created 21/02/2021
  */
-public class Categoria {
+@Entity
+public class Categoria implements Serializable {
 
+    private static final long serialVersionUID = 1L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nome;
     private String descricao;
 
+    @OneToMany(mappedBy = "categoria") //Anotacao para associacao
     private List<Livro> livros = new ArrayList<>();
-    
+
     //CONSTRUCTOR
     public Categoria() {
     }
+
     //CONSTRUCTOR
     public Categoria(Integer id, String nome, String descricao) {
         this.id = id;
         this.nome = nome;
         this.descricao = descricao;
     }
-    
+
     //EQUALS AND HASHCODE
-    @Override    
+    @Override
     public int hashCode() {
         int hash = 7;
         hash = 97 * hash + Objects.hashCode(this.id);
         return hash;
     }
-    @Override    
+
+    @Override
     public boolean equals(Object obj) {
         if (this == obj) {
             return true;
@@ -67,9 +81,5 @@ public class Categoria {
     public List<Livro> getLivros() {
         return livros;
     }
-    
 
-    
-
-    
 }

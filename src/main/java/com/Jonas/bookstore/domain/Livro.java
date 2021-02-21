@@ -1,18 +1,34 @@
 package com.Jonas.bookstore.domain;
 
+import java.io.Serializable;
 import java.util.Objects;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 /**
  *
  * created 21/02/2021
  */
-public class Livro {
 
+@Entity
+public class Livro implements Serializable{
+    
+    private static final long serialVersionUID = 1L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String titulo;
     private String nomeAuthor;
     private String texto;
 
+    @ManyToOne //Anotacao para associacao 
+    @JoinColumn(name = "categoria_id")
     private Categoria categoria;
 
     //CONSTRUCTOR

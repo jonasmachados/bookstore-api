@@ -6,7 +6,6 @@ import com.Jonas.bookstore.repositories.CategoriaRepository;
 import com.Jonas.bookstore.repositories.LivroRepository;
 import java.util.Arrays;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Service;
 
 /**

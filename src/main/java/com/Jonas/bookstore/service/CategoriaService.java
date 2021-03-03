@@ -1,6 +1,7 @@
 package com.Jonas.bookstore.service;
 
 import com.Jonas.bookstore.domain.Categoria;
+import com.Jonas.bookstore.dtos.CategoriaDTO;
 import com.Jonas.bookstore.service.exceptions.ObjectNotFoundException;
 import com.Jonas.bookstore.repositories.CategoriaRepository;
 import java.util.List;
@@ -31,6 +32,14 @@ public class CategoriaService {
     }
 
     public Categoria create(Categoria obj) {
-		return repository.save(obj);
-	}
+        return repository.save(obj);
+    }
+
+    public Categoria update(Integer id, CategoriaDTO objDto) {
+        Categoria obj = findById(id);
+        obj.setNome(objDto.getNome());
+        obj.setDescricao(objDto.getDescricao());
+        return repository.save(obj);
+    }
+
 }

@@ -1,4 +1,4 @@
-package com.Jonas.bookstore.resource;
+ package com.Jonas.bookstore.resource;
 
 import com.Jonas.bookstore.domain.Categoria;
 import com.Jonas.bookstore.dtos.CategoriaDTO;

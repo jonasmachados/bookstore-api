@@ -1,4 +1,4 @@
-<h1 align="center">BookStore -API</h1>
+<h1>BookStore -API</h1>
 
 <figure>
 	<img src="img/ModeloConceitual.png" title="Modelo de domínio">

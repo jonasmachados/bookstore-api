@@ -1,5 +1,6 @@
 package com.Jonas.bookstore.service;
 
+import com.Jonas.bookstore.domain.Categoria;
 import com.Jonas.bookstore.domain.Livro;
 import com.Jonas.bookstore.repositories.LivroRepository;
 import com.Jonas.bookstore.resource.LivroResource;
@@ -44,6 +45,13 @@ public class LivroService {
         newObj.setTitulo(obj.getTitulo());
         newObj.setNomeAuthor(obj.getNomeAuthor());
         newObj.setTexto(obj.getTexto());
+    }
+
+    public Livro create(Integer id_cat, Livro obj) {
+        obj.setId(null);
+        Categoria cat = categoriaService.findById(id_cat);
+        obj.setCategoria(cat);
+        return livroRepository.save(obj);
     }
 
 }

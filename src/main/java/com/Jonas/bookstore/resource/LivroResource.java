@@ -40,7 +40,7 @@ public class LivroResource {
         return ResponseEntity.ok().body(obj);
     }
 
-    //Find all book by determined Category, postman: 
+    //Find all book by determined Category, postman: livros?categorias/id
     @GetMapping
     public ResponseEntity<List<LivroDTO>> findAll(@RequestParam(value = "categoria", defaultValue = "0") Integer id_cat) {
         List<Livro> list = livroService.findAll(id_cat);
